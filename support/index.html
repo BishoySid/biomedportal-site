@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — BiomedPortal</title>
+<meta name="description" content="Getting started with BiomedPortal, answers to common problems with scanning, lookups, manuals and backups, and how to reach a human.">
+<link rel="canonical" href="https://biomedportal.app/support/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="theme-color" content="#0e7168">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="BiomedPortal home">
+      <img class="on-light" src="/assets/logo-lockup.svg" alt="BiomedPortal">
+      <img class="on-dark" src="/assets/logo-lockup-dark.svg" alt="BiomedPortal">
+    </a>
+    <nav class="site">
+      <a href="/#how">How it works</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/support/" aria-current="page">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="page-head">
+  <div class="prose">
+    <h1>Support</h1>
+    <p class="meta">Email <a href="mailto:support@biomedportal.app">support@biomedportal.app</a>.
+    One person reads it; expect a reply within two business days.</p>
+  </div>
+</div>
+
+<section>
+<div class="prose">
+
+<h2 id="start">Getting started</h2>
+
+<ol>
+  <li><strong>Try it before you commit an afternoon.</strong> Tap <strong>⋯</strong> at the top
+      left, then <strong>Load sample inventory</strong>. Three realistic devices appear so you can
+      see what a filled-in record looks like. <strong>⋯ → Remove sample data</strong> takes them
+      away again, cleanly.</li>
+  <li><strong>Scan your first device.</strong> Tap the scan button at the top right and hold the
+      camera over the barcode on the equipment label — usually near the serial number, often on
+      the back or underside.</li>
+  <li><strong>Check what came back,</strong> then add a location before you save. Location is
+      what turns a list of products into an inventory you can actually walk.</li>
+  <li><strong>Photograph the label.</strong> This is the step people skip and later wish they
+      hadn't. Printed labels fade; a photo taken today is still readable in five years.</li>
+  <li><strong>Make a backup as soon as you have more than a handful of devices,</strong> and
+      again whenever you have added a batch. <strong>⋯ → Back up &amp; restore</strong>.</li>
+</ol>
+
+<div class="callout">
+<p><strong>Working through a whole building?</strong> Scan a room at a time and set the location
+as you go, rather than scanning everything and sorting it out later. Rooms are how anyone
+searching for equipment actually thinks about it.</p>
+</div>
+
+<h2 id="scanning">Scanning</h2>
+
+<div class="faq">
+  <details>
+    <summary>The camera will not read the barcode</summary>
+    <div class="answer">
+      <p>In rough order of how often it is the cause: not enough light, the label is curved
+      around a cylinder, the camera is closer than it can focus, or the label is worn.</p>
+      <p>Try backing off to 15–20 cm and letting the camera settle before moving closer. For a
+      curved label, come at it square to the centre of the barcode rather than at an angle. For a
+      2D square code (Data Matrix), fill more of the frame than feels necessary.</p>
+      <p>If it still will not read, use <strong>⋯ → Enter identifier by hand</strong> and type the
+      number printed under the barcode. That path is fully supported, not a consolation prize —
+      the lookup and everything after it work identically.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Which barcode types are supported?</summary>
+    <div class="answer">
+      <p>The scanner reads Data Matrix, QR, PDF417, Aztec, Code 128, Code 39, Code 93, Codabar,
+      Interleaved 2-of-5, ITF-14, EAN-8, EAN-13, UPC-E and their variants — which covers what
+      appears on medical and dental equipment in practice.</p>
+      <p>Of those, the ones carrying a UDI are usually a GS1 code (Data Matrix or Code 128,
+      often starting <code>(01)</code>) or a HIBCC code (starting <code>+</code>). Both are
+      parsed fully, including the production data packed inside them: serial number, lot,
+      expiry and manufacturing date where the label includes them.</p>
+    </div>
+  </details>
+  <details>
+    <summary>It says the device is already in my inventory</summary>
+    <div class="answer">
+      <p>You have scanned another unit of the same product — five identical handpieces share one
+      device identifier, because the identifier describes the product, not the individual item.
+      Choose <strong>Add another unit</strong> and give it a label such as <em>Op 3</em> or the
+      serial number. That is exactly what the prompt is for.</p>
+    </div>
+  </details>
+  <details>
+    <summary>The camera permission prompt never appeared, or I said no</summary>
+    <div class="answer">
+      <p>Open the iOS <strong>Settings</strong> app → <strong>BiomedPortal</strong> →
+      <strong>Camera</strong>. Manual entry works either way.</p>
+    </div>
+  </details>
+</div>
+
+<h2 id="lookups">Product lookups</h2>
+
+<div class="faq">
+  <details>
+    <summary>“Not in the FDA database” — did I do something wrong?</summary>
+    <div class="answer">
+      <p>Almost certainly not. AccessGUDID covers devices whose labelers were required to submit
+      a record, and the requirement phased in over several years. Capital equipment that predates
+      it — an older autoclave, a delivery unit, a compressor — is frequently absent, and so are
+      many non-US products.</p>
+      <p>The device is still saved. Type the make and model yourself and it becomes a full record:
+      searchable, photographable, and backed up like any other.</p>
+    </div>
+  </details>
+  <details>
+    <summary>The lookup failed or timed out</summary>
+    <div class="answer">
+      <p>The lookup needs an internet connection and depends on a US government service that is
+      occasionally down for maintenance. The scan is never lost when this happens — the device is
+      saved with what you have, and you can run the lookup again later from the device's own
+      screen.</p>
+    </div>
+  </details>
+  <details>
+    <summary>The details that came back are wrong or incomplete</summary>
+    <div class="answer">
+      <p>BiomedPortal shows the record exactly as the labeler submitted it to the FDA; it does
+      not edit or fill gaps. Blank fields mean the labeler left them blank. Anything you type
+      yourself — make, model, serial, location — is kept separately and is never overwritten by a
+      lookup.</p>
+      <p>Corrections to the underlying record have to be made by the labeler, through the FDA's
+      GUDID system.</p>
+    </div>
+  </details>
+</div>
+
+<h2 id="manuals">Photos and manuals</h2>
+
+<div class="faq">
+  <details>
+    <summary>My PDF imported but no facts were extracted</summary>
+    <div class="answer">
+      <p>The usual cause is that the PDF is a scan of paper. It looks like text to you and is a
+      picture to the phone, so there is nothing to read. The manual is still attached and still
+      opens — only the automatic extraction is unavailable, and the device screen says so rather
+      than pretending it found nothing.</p>
+      <p>Where you can, download the manufacturer's own PDF from their website rather than
+      scanning a printed copy.</p>
+    </div>
+  </details>
+  <details>
+    <summary>“That file is too large”</summary>
+    <div class="answer">
+      <p>Single manuals are capped at 60 MB so that one enormous scan cannot fill the phone.
+      Manufacturer PDFs are almost always well under this; scanned ones often are not. Recompress
+      it, or attach only the service section.</p>
+    </div>
+  </details>
+  <details>
+    <summary>How much space will this use?</summary>
+    <div class="answer">
+      <p>Roughly: a label photo is around 1 MB, and a typical manufacturer manual 5–10 MB. A
+      practice with 80 devices, a label photo for each and manuals for half comes to somewhere
+      near 400 MB. The current total is shown on the <strong>Back up &amp; restore</strong>
+      screen.</p>
+      <p>If space is tight, leave manuals out of the backup file — they can be downloaded again
+      from the manufacturer, and your own photos cannot.</p>
+    </div>
+  </details>
+</div>
+
+<h2 id="backups">Backup and restore</h2>
+
+<div class="faq">
+  <details>
+    <summary>How do I move my inventory to a new phone?</summary>
+    <div class="answer">
+      <p>On the old phone: <strong>⋯ → Back up &amp; restore</strong>, choose a passphrase,
+      <strong>Create backup</strong>, then <strong>Save backup file</strong> and put it somewhere
+      both phones can reach — Files, a drive, AirDrop.</p>
+      <p>On the new phone: install BiomedPortal, open <strong>⋯ → Back up &amp; restore →
+      Restore from a backup file</strong>, pick the file and enter the passphrase.</p>
+      <p>Restoring only ever adds. It will not overwrite or delete anything already on the phone,
+      so running it twice is harmless.</p>
+    </div>
+  </details>
+  <details>
+    <summary>I have forgotten the backup passphrase</summary>
+    <div class="answer">
+      <p>The file cannot be opened. This is not a policy we can make an exception to — the
+      encryption key is derived from the passphrase and the passphrase is stored nowhere, so
+      there is no key and no back door. If the phone still has the inventory, make a fresh backup
+      with a passphrase you record properly.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Restore says the file is not a BiomedPortal backup</summary>
+    <div class="answer">
+      <p>Either the wrong file was picked — a backup ends in <code>.bmpx</code> — or the file was
+      altered in transit. Some mail and chat services rewrite attachments. Re-export and move the
+      file through Files or AirDrop instead.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Can I open a backup file on a computer?</summary>
+    <div class="answer">
+      <p>Not without writing something to decrypt it, and that is the intended trade-off — the
+      file is encrypted precisely so that nobody can. What is inside, once decrypted, is a plain
+      JSON inventory followed by the attachment files, so nothing about the format traps your data
+      in this app permanently.</p>
+    </div>
+  </details>
+</div>
+
+<h2 id="data">Your data</h2>
+
+<div class="faq">
+  <details>
+    <summary>How do I delete everything?</summary>
+    <div class="answer">
+      <p><strong>⋯ → About &amp; privacy → Delete all equipment data</strong>. Every record,
+      photo, manual and extracted fact goes immediately. Deleting the app does the same thing.
+      Neither touches a backup file you saved elsewhere — delete that yourself.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Do you have a copy of my inventory?</summary>
+    <div class="answer">
+      <p>No. There is no server and no account. See the
+      <a href="/privacy/">privacy policy</a> for exactly what does and does not leave the
+      device.</p>
+    </div>
+  </details>
+</div>
+
+<h2 id="contact">Still stuck?</h2>
+
+<p>Email <a href="mailto:support@biomedportal.app">support@biomedportal.app</a>. It helps to
+include your iPhone model, your iOS version, the app version from
+<strong>⋯ → About &amp; privacy</strong>, and what you tapped just before it went wrong. Please
+do not send photographs containing patient information — they will not help, and there is no
+reason for them to leave your device.</p>
+
+<p>Bug reports and feature requests are welcome at the same address.</p>
+
+</div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>© 2026 BiomedPortal</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="mailto:support@biomedportal.app">support@biomedportal.app</a>
+      </nav>
+    </div>
+    <p class="disclaimer">
+      BiomedPortal is an equipment inventory tool. It is not a medical device, it does not
+      diagnose or treat anyone, and it is not affiliated with or endorsed by the FDA, NIH or NLM.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
