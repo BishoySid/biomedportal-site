@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy — BiomedPortal</title>
+<meta name="description" content="BiomedPortal stores your equipment inventory only on your device. No account, no server, no analytics, no tracking. This policy explains exactly what does and does not leave your phone.">
+<link rel="canonical" href="https://biomedportal.app/privacy/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="theme-color" content="#0e7168">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="BiomedPortal home">
+      <img class="on-light" src="/assets/logo-lockup.svg" alt="BiomedPortal">
+      <img class="on-dark" src="/assets/logo-lockup-dark.svg" alt="BiomedPortal">
+    </a>
+    <nav class="site">
+      <a href="/#how">How it works</a>
+      <a href="/privacy/" aria-current="page">Privacy</a>
+      <a href="/support/">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="page-head">
+  <div class="prose">
+    <h1>Privacy policy</h1>
+    <p class="meta">Applies to the BiomedPortal iOS app and to biomedportal.app.<br>
+    Effective 3 August 2026. Last updated 3 August 2026.</p>
+  </div>
+</div>
+
+<section>
+<div class="prose">
+
+<h2 id="summary">The short version</h2>
+
+<p>BiomedPortal keeps your equipment inventory on your device and nowhere else. There is no
+account to create, no server holding your records, and no analytics or tracking of any kind.
+Exactly one piece of information is ever sent anywhere: the device identifier printed on a piece
+of equipment, sent to a public U.S. government database to ask what that product is.</p>
+
+<div class="callout">
+<p><strong>We do not collect your personal information.</strong> Not your name, not your email,
+not your location, not a device identifier belonging to you, and not the contents of your
+inventory. There is no mechanism in the app by which we could — the app has no account system and
+sends nothing to any server we operate. We do not operate a server.</p>
+</div>
+
+<h2 id="controller">Who this policy is from</h2>
+
+<p>BiomedPortal (“BiomedPortal”, “we”, “us”) publishes the BiomedPortal app for iPhone and iPad.
+Questions about this policy, or about privacy generally, go to
+<a href="mailto:privacy@biomedportal.app">privacy@biomedportal.app</a>.</p>
+
+<h2 id="on-device">Information stored on your device</h2>
+
+<p>When you use BiomedPortal, the following is written to your device's own storage, inside the
+app's private container:</p>
+
+<ul>
+  <li><strong>Equipment records</strong> — the identifier you scanned or typed, its issuing
+      agency, the product details returned by the FDA database, any make, model, serial number,
+      unit label and location you entered yourself, and the date you added it.</li>
+  <li><strong>Photographs</strong> you take in the app — of equipment labels, units and
+      accessories. Photos are resized and re-encoded when saved, which removes the camera
+      metadata, including any location data, that the original capture carried.</li>
+  <li><strong>PDF manuals</strong> you import, and the maintenance facts extracted from their
+      text.</li>
+  <li><strong>Small app preferences</strong>, such as whether you have loaded or removed the
+      sample inventory.</li>
+</ul>
+
+<p>All of this is protected by iOS file protection, meaning it is readable only while your device
+is unlocked. It is included in your device's own iPhone or iCloud backup if you have one — that
+backup is Apple's, made under Apple's terms and your settings, and we have no access to it or
+visibility into it.</p>
+
+<p>None of this is transmitted to us. We have no way to read it, recover it, or delete it for you.</p>
+
+<h2 id="off-device">What leaves your device, and when</h2>
+
+<h3>1. Device identifier lookups (AccessGUDID)</h3>
+
+<p>When you scan a barcode or type an identifier, the app sends that identifier over HTTPS to
+<strong>AccessGUDID</strong>, the public Global Unique Device Identification Database operated by
+the U.S. National Library of Medicine (NLM), part of the National Institutes of Health, on behalf
+of the U.S. Food and Drug Administration.</p>
+
+<p>What is sent is the identifier of a manufactured product — the number printed on an autoclave
+or a box of burs. It describes the equipment, not you. Nothing is attached to it: no account, no
+name, no practice, no device identifier belonging to your phone, no location, and nothing else
+from your inventory.</p>
+
+<p>As with any request to any website, the NLM's servers can see the originating IP address and
+the fact that a request was made. That is inherent to using the internet and is outside our
+control; the NLM's handling of it is governed by its own privacy policy, at
+<a href="https://www.nlm.nih.gov/privacy.html" rel="noopener">nlm.nih.gov/privacy.html</a>. We
+never see these requests, because they do not pass through any system of ours.</p>
+
+<p>If you would rather make no network requests at all, use <em>Enter identifier by hand</em> and
+simply do not run the lookup, or turn off the app's network access in iOS Settings. Everything
+else in the app keeps working.</p>
+
+<h3>2. Backup files you create</h3>
+
+<p>Creating a backup produces a single encrypted file. The file is encrypted on your device with
+AES-256-GCM, using a key derived from the passphrase you choose via PBKDF2-HMAC-SHA256 with
+210,000 iterations and a fresh random salt for every file. The passphrase is never stored, never
+transmitted, and cannot be recovered — by you or by us. If it is lost, the file cannot be opened.</p>
+
+<p>Where the file goes is entirely your decision, made through the iOS share sheet: Files, a
+practice drive, AirDrop, email, or a cloud service you already use. Once it leaves the app it is
+subject to whatever terms govern the place you put it. We never receive it.</p>
+
+<h3>3. Nothing else</h3>
+
+<p>There is no other outbound network activity. No crash reporting, no telemetry, no
+advertising, no attribution, no remote configuration, and no third-party SDKs of any description
+linked into the app.</p>
+
+<h2 id="camera">Camera</h2>
+
+<p>BiomedPortal asks for camera access for two purposes: reading barcodes on equipment labels,
+and photographing equipment. Camera frames are processed live on your device to detect barcodes
+and are not recorded unless you deliberately take a photo. Photos you take are saved only inside
+the app.</p>
+
+<p>The app does <strong>not</strong> request access to your photo library, and cannot read
+photos you took elsewhere. If you decline camera access, everything else in the app still
+works — you can enter identifiers by hand.</p>
+
+<h2 id="tracking">Tracking and advertising</h2>
+
+<p>BiomedPortal does not track you, in the ordinary sense or in Apple's specific sense. It does
+not use the Advertising Identifier, does not link your activity to data from other companies'
+apps or websites, does not share anything with data brokers, and does not show advertising.
+Because of this it never presents an App Tracking Transparency prompt. Its App Store privacy
+label reads <em>Data Not Collected</em>.</p>
+
+<h2 id="health">Health and patient information</h2>
+
+<p>BiomedPortal is an equipment inventory tool. It is not a medical device, it performs no
+clinical function, and it is not designed to hold information about patients. It has no free-text
+notes field, deliberately, so there is no obvious place for such information to be typed.</p>
+
+<p>Because nothing you enter is transmitted to or stored by us, we do not receive protected
+health information and do not act as a HIPAA business associate. If you photograph equipment in a
+clinical area, take the ordinary care you would with any camera: what ends up in the frame stays
+on your device and remains your responsibility under your own policies.</p>
+
+<h2 id="children">Children</h2>
+
+<p>BiomedPortal is a tool for managing equipment and is not directed at children. We do not
+knowingly collect information from anyone, including children — we do not collect information at
+all.</p>
+
+<h2 id="retention">Retention and deletion</h2>
+
+<p>We hold nothing, so there is nothing for us to retain or delete. On your side:</p>
+
+<ul>
+  <li>Delete an individual device, photo or manual from within the app at any time.</li>
+  <li><strong>About &amp; privacy → Delete all equipment data</strong> removes every record,
+      photo, manual and extracted fact from the device immediately and irreversibly.</li>
+  <li>Deleting the app removes its entire container, including everything above.</li>
+</ul>
+
+<p>None of these touch a backup file you have already saved somewhere else. Delete that yourself
+if you want it gone.</p>
+
+<h2 id="rights">Your rights (GDPR, UK GDPR, CCPA/CPRA and similar laws)</h2>
+
+<p>These laws give you rights over personal data a company holds about you — access, correction,
+deletion, portability, objection, and the right not to be discriminated against for exercising
+them. We hold no personal data about you, so in practice:</p>
+
+<ul>
+  <li><strong>Access and portability</strong> — everything is already on your device and in your
+      hands. The backup file contains a plain-JSON inventory readable in any text editor once
+      decrypted, so your data is portable by construction.</li>
+  <li><strong>Deletion and correction</strong> — done in the app, instantly, without asking us.</li>
+  <li><strong>Sale or sharing of personal information</strong> — we do not sell or share personal
+      information, and never have. There is nothing to opt out of.</li>
+</ul>
+
+<p>Where any processing does occur — the AccessGUDID lookup — the lawful basis under the GDPR is
+legitimate interest in providing the feature you asked for by tapping <em>Look up</em>, and the
+data involved is a product identifier rather than personal data. You can send a request to
+<a href="mailto:privacy@biomedportal.app">privacy@biomedportal.app</a> at any time; the honest
+answer will usually be that we hold no record of you to act on.</p>
+
+<h2 id="apple">Apple's role</h2>
+
+<p>The app is distributed through the App Store. Apple collects information about App Store
+downloads, purchases and, if you have opted in, aggregated usage analytics — under
+<a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple's privacy policy</a>, not this
+one. We may see anonymous, aggregated App Store statistics from Apple; they identify nobody.</p>
+
+<h2 id="website">This website</h2>
+
+<p>biomedportal.app is a set of static pages. It sets no cookies, runs no analytics, embeds no
+third-party scripts, fonts or trackers, and has no forms. Your browser's request to fetch a page
+is handled by the hosting provider, whose server logs are the only record it produces.</p>
+
+<h2 id="changes">Changes to this policy</h2>
+
+<p>If this policy changes, the new version appears here with a new “last updated” date. A change
+that materially reduces your privacy — for example, adding analytics or any server component —
+would be announced in the app's release notes as well, because it would also require changing the
+App Store privacy label.</p>
+
+<h2 id="contact">Contact</h2>
+
+<p>Privacy questions: <a href="mailto:privacy@biomedportal.app">privacy@biomedportal.app</a><br>
+Everything else: <a href="mailto:support@biomedportal.app">support@biomedportal.app</a>, or the
+<a href="/support/">support page</a>.</p>
+
+</div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>© 2026 BiomedPortal</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/support/">Support</a>
+      <a href="mailto:privacy@biomedportal.app">privacy@biomedportal.app</a>
+      </nav>
+    </div>
+    <p class="disclaimer">
+      BiomedPortal is an equipment inventory tool. It is not a medical device, it does not
+      diagnose or treat anyone, and it is not affiliated with or endorsed by the FDA, NIH or NLM.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
