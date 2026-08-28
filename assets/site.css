@@ -1,40 +1,61 @@
 /* BiomedPortal — one stylesheet for all three pages.
-   Tokens mirror brand/make_brand.py so the site and the app icon stay in step. */
+   Duolingo-inspired pass (Aug 2026): rounded type, chunky "3D" buttons with a
+   hard bottom edge, 2px-bordered cards that sit on a solid shadow, and a bright
+   accent set. The brand teal stays the primary so the logo still belongs. */
 
 :root {
-  --teal-900: #07403c;
-  --teal-800: #0b5b55;
-  --teal-700: #0e7168;
-  --teal-600: #128279;
-  --teal-500: #17998e;
-  --mint-300: #6fe3d3;
+  /* --- brand, brightened one stop toward the playful end ---------------- */
+  --teal-900: #06403c;
+  --teal-800: #0a5f58;
+  --teal-700: #0f8a7d;
+  --teal-600: #14b39f;
+  --teal-500: #1ccdb5;
+  --mint-300: #7defd9;
 
-  --ink: #0c1b1a;
-  --body: #33474a;
-  --muted: #5d7275;
-  --line: #dde8e6;
+  /* the hard edge under every raised element (a darker shade of its face) */
+  --teal-edge: #0b6f65;
+
+  /* --- accent set: used for glyph tiles, pills and the FAQ marker ------- */
+  --acc-blue:   #1cb0f6;
+  --acc-blue-b: #1a91cc;
+  --acc-gold:   #ffc800;
+  --acc-gold-b: #e0a800;
+  --acc-coral:  #ff6b5e;
+  --acc-purple: #b06cf0;
+  --acc-green:  #58cc02;
+
+  --ink: #10312e;
+  --body: #3d5654;
+  --muted: #667f7d;
+  --line: #dfe9e7;
+  --line-strong: #cfe0dd;
   --surface: #ffffff;
-  --surface-2: #f3f8f7;
+  --surface-2: #f2faf8;
   --page: #ffffff;
 
-  --radius: 16px;
+  --radius: 20px;
+  --radius-lg: 26px;
   --measure: 68ch;
-  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
+  /* Rounded first — this is most of the "fun" before a single colour changes. */
+  --sans: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont,
+          "Segoe UI Variable Display", "Segoe UI", Roboto, "Helvetica Neue",
+          Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --ink: #eaf5f3;
-    --body: #b9cfcc;
-    --muted: #8ea8a5;
-    --line: #1d3835;
-    --surface: #0e1f1d;
-    --surface-2: #0a1917;
-    --page: #061312;
-    --teal-600: #3fb3a5;
-    --teal-700: #2aa093;
+    --ink: #ebfaf6;
+    --body: #bcd6d1;
+    --muted: #92aeaa;
+    --line: #1f3d39;
+    --line-strong: #2b514c;
+    --surface: #0f2321;
+    --surface-2: #0b1c1a;
+    --page: #061513;
+    --teal-600: #2fd3ba;
+    --teal-700: #23bda6;
+    --teal-edge: #0c6459;
   }
 }
 
@@ -51,46 +72,53 @@ body {
   margin: 0;
   font-family: var(--sans);
   font-size: 17px;
-  line-height: 1.65;
+  line-height: 1.62;
   color: var(--body);
   background: var(--page);
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3 { color: var(--ink); line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 .5em; }
-h1 { font-size: clamp(2.1rem, 5.2vw, 3.4rem); font-weight: 700; letter-spacing: -0.03em; }
-h2 { font-size: clamp(1.5rem, 3.2vw, 2.05rem); font-weight: 700; margin-top: 2.4em; }
-h3 { font-size: 1.12rem; font-weight: 650; margin-top: 2em; }
+h1, h2, h3 { color: var(--ink); line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 .5em; }
+h1 { font-size: clamp(2.2rem, 5.4vw, 3.5rem); font-weight: 800; letter-spacing: -0.035em; }
+h2 { font-size: clamp(1.55rem, 3.3vw, 2.1rem); font-weight: 800; margin-top: 2.4em; }
+h3 { font-size: 1.14rem; font-weight: 750; margin-top: 2em; }
 p { margin: 0 0 1.1em; }
-a { color: var(--teal-600); text-decoration-thickness: 1px; text-underline-offset: 2px; }
-a:hover { color: var(--teal-500); }
-strong { color: var(--ink); font-weight: 650; }
+a { color: var(--teal-700); font-weight: 600; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--teal-600); }
+strong { color: var(--ink); font-weight: 750; }
 code { font-family: var(--mono); font-size: .88em; background: var(--surface-2);
-       padding: .12em .38em; border-radius: 5px; }
+       padding: .14em .42em; border-radius: 7px; }
 
 .wrap { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
 .prose { width: min(var(--measure), 100% - 2.5rem); margin-inline: auto; }
 .prose ul, .prose ol { padding-left: 1.3em; margin: 0 0 1.2em; }
 .prose li { margin-bottom: .45em; }
+.prose li::marker { color: var(--teal-600); }
 
 /* skip link — the site is short but this costs nothing and helps screen readers */
 .skip {
   position: absolute; left: -9999px; top: 0; background: var(--teal-700);
-  color: #fff; padding: .7rem 1rem; border-radius: 0 0 10px 0; z-index: 20;
+  color: #fff; padding: .7rem 1rem; border-radius: 0 0 14px 0; z-index: 20;
+  font-weight: 750;
 }
 .skip:focus { left: 0; }
+
+/* Visible, chunky focus ring everywhere — part of the look, not an add-on. */
+:where(a, button, summary, .btn):focus-visible {
+  outline: 3px solid var(--acc-blue); outline-offset: 3px; border-radius: 12px;
+}
 
 /* ---------------------------------------------------------------- header */
 
 header.site {
   position: sticky; top: 0; z-index: 10;
-  background: color-mix(in srgb, var(--page) 88%, transparent);
+  background: color-mix(in srgb, var(--page) 90%, transparent);
   backdrop-filter: saturate(180%) blur(14px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
 }
 header.site .wrap {
   display: flex; align-items: center; gap: 1.4rem;
-  min-height: 66px; padding-block: .55rem;
+  min-height: 68px; padding-block: .55rem;
 }
 .logo { display: inline-flex; align-items: center; flex: 0 0 auto; }
 .logo img { height: 30px; width: auto; display: block; }
@@ -99,18 +127,22 @@ header.site .wrap {
   .logo .on-light { display: none; }
   .logo .on-dark { display: block; }
 }
-nav.site { margin-left: auto; display: flex; gap: 1.35rem; flex-wrap: nowrap; }
-nav.site a { color: var(--muted); text-decoration: none; font-size: .95rem; font-weight: 550; white-space: nowrap; }
-nav.site a:hover, nav.site a[aria-current="page"] { color: var(--ink); }
+nav.site { margin-left: auto; display: flex; gap: .5rem; flex-wrap: nowrap; }
+nav.site a {
+  color: var(--muted); text-decoration: none; font-size: .95rem; font-weight: 750;
+  white-space: nowrap; padding: .4rem .75rem; border-radius: 999px;
+}
+nav.site a:hover { color: var(--teal-700); background: color-mix(in srgb, var(--teal-600) 12%, transparent); }
+nav.site a[aria-current="page"] { color: var(--teal-700); background: color-mix(in srgb, var(--teal-600) 14%, transparent); }
 
 /* Below this the logo and three links stop fitting on one line, and letting
    them wrap turns the header into a four-line block. Give the nav its own row
    instead, and stop pinning it — two stuck rows eat a phone screen. */
 @media (max-width: 620px) {
   header.site { position: static; }
-  header.site .wrap { flex-wrap: wrap; gap: .1rem 1rem; min-height: 0; padding-block: .7rem .55rem; }
-  nav.site { margin-left: 0; width: 100%; gap: 1.15rem; }
-  nav.site a { font-size: .9rem; }
+  header.site .wrap { flex-wrap: wrap; gap: .1rem .35rem; min-height: 0; padding-block: .7rem .55rem; }
+  nav.site { margin-left: 0; width: 100%; gap: .3rem; }
+  nav.site a { font-size: .9rem; padding: .35rem .6rem; }
   .logo img { height: 27px; }
 }
 
@@ -122,26 +154,40 @@ nav.site a:hover, nav.site a[aria-current="page"] { color: var(--ink); }
 @media (min-width: 900px) { .hero .wrap { grid-template-columns: 1.05fr .95fr; } }
 .eyebrow {
   display: inline-flex; align-items: center; gap: .5rem;
-  font-size: .82rem; font-weight: 650; letter-spacing: .06em; text-transform: uppercase;
-  color: var(--teal-600); background: color-mix(in srgb, var(--teal-600) 11%, transparent);
-  border-radius: 999px; padding: .34rem .8rem; margin-bottom: 1.2rem;
+  font-size: .82rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase;
+  color: var(--teal-800); background: color-mix(in srgb, var(--teal-500) 26%, transparent);
+  border: 2px solid color-mix(in srgb, var(--teal-600) 42%, transparent);
+  border-radius: 999px; padding: .34rem .85rem; margin-bottom: 1.2rem;
 }
-.lede { font-size: clamp(1.06rem, 2vw, 1.28rem); color: var(--body); max-width: 34em; }
+@media (prefers-color-scheme: dark) { .eyebrow { color: var(--mint-300); } }
+.lede { font-size: clamp(1.08rem, 2vw, 1.3rem); color: var(--body); max-width: 34em; }
 
-.cta-row { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; align-items: center; }
+.cta-row { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1.9rem; align-items: center; }
+
+/* The chunky button: a solid face over a hard bottom edge that compresses on
+   press. No blur, no gradient — the whole trick is the offset solid shadow. */
 .btn {
-  display: inline-flex; align-items: center; gap: .5rem;
-  font: inherit; font-weight: 600; font-size: .98rem;
-  padding: .78rem 1.35rem; border-radius: 12px; text-decoration: none;
-  border: 1px solid transparent; transition: transform .12s ease, background .12s ease;
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  font: inherit; font-weight: 800; font-size: .96rem;
+  letter-spacing: .01em;
+  padding: .85rem 1.6rem; border-radius: 16px; text-decoration: none;
+  border: 2px solid transparent;
+  transition: transform .08s ease, box-shadow .08s ease, background .12s ease;
 }
-.btn:active { transform: translateY(1px); }
-.btn-primary { background: var(--teal-700); color: #fff; }
-.btn-primary:hover { background: var(--teal-600); color: #fff; }
-.btn-ghost { border-color: var(--line); color: var(--ink); background: var(--surface); }
-.btn-ghost:hover { border-color: var(--teal-600); color: var(--ink); }
-.btn[aria-disabled="true"] { opacity: .62; pointer-events: none; }
-.cta-note { font-size: .86rem; color: var(--muted); margin: .85rem 0 0; }
+.btn-primary {
+  background: var(--teal-600); color: #fff; border-color: var(--teal-600);
+  box-shadow: 0 4px 0 var(--teal-edge);
+}
+.btn-primary:hover { background: var(--teal-500); border-color: var(--teal-500); color: #fff; }
+.btn-primary:active { transform: translateY(4px); box-shadow: 0 0 0 var(--teal-edge); }
+.btn-ghost {
+  background: var(--surface); color: var(--teal-700);
+  border-color: var(--line-strong); box-shadow: 0 4px 0 var(--line-strong);
+}
+.btn-ghost:hover { border-color: var(--teal-600); box-shadow: 0 4px 0 var(--teal-600); color: var(--teal-700); }
+.btn-ghost:active { transform: translateY(4px); box-shadow: 0 0 0 var(--line-strong); }
+.btn[aria-disabled="true"] { opacity: .55; pointer-events: none; }
+.cta-note { font-size: .88rem; color: var(--muted); margin: 1rem 0 0; font-weight: 600; }
 
 /* ---------------------------------------------------------------- phone */
 
@@ -150,7 +196,7 @@ nav.site a:hover, nav.site a[aria-current="page"] { color: var(--ink); }
   width: min(310px, 78vw); aspect-ratio: 9 / 19.5;
   border-radius: 44px; padding: 11px;
   background: linear-gradient(160deg, #2c3a3a, #101a19 60%);
-  box-shadow: 0 30px 70px -28px rgba(7, 64, 60, .55), 0 2px 6px rgba(0,0,0,.18);
+  box-shadow: 0 30px 70px -28px rgba(6, 64, 60, .55), 0 2px 6px rgba(0,0,0,.18);
   flex: 0 0 auto;
 }
 @media (prefers-color-scheme: dark) {
@@ -161,12 +207,12 @@ nav.site a:hover, nav.site a[aria-current="page"] { color: var(--ink); }
 }
 .phone-screen {
   height: 100%; border-radius: 34px; overflow: hidden;
-  background: #f2f2f7; color: #000; display: flex; flex-direction: column;
+  background: #f2f7f6; color: #000; display: flex; flex-direction: column;
   font-size: 12px; line-height: 1.35; position: relative;
 }
 .phone-status {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 20px 2px; font-size: 11px; font-weight: 640; color: #000;
+  padding: 10px 20px 2px; font-size: 11px; font-weight: 700; color: #000;
 }
 .phone-status .glyphs { display: inline-flex; align-items: center; gap: 5px; color: #000; }
 .phone-status .glyphs svg { height: 9px; width: auto; display: block; }
@@ -174,27 +220,27 @@ nav.site a:hover, nav.site a[aria-current="page"] { color: var(--ink); }
   display: flex; align-items: center; justify-content: space-between;
   padding: 4px 15px 8px;
 }
-.phone-nav .title { font-size: 25px; font-weight: 700; letter-spacing: -.6px; }
-.phone-nav .icons { display: flex; gap: 12px; color: #0e7168; }
+.phone-nav .title { font-size: 25px; font-weight: 800; letter-spacing: -.7px; }
+.phone-nav .icons { display: flex; gap: 12px; color: #0f8a7d; }
 .phone-nav .icons svg { width: 19px; height: 19px; display: block; }
 .phone-search {
-  margin: 0 14px 10px; background: rgba(118,118,128,.12); border-radius: 10px;
-  padding: 6px 10px; color: #8a8a8e; font-size: 12px;
+  margin: 0 14px 10px; background: rgba(118,118,128,.12); border-radius: 12px;
+  padding: 6px 10px; color: #8a8a8e; font-size: 12px; font-weight: 600;
 }
-.phone-list { padding: 0 14px; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
+.phone-list { padding: 0 14px; display: flex; flex-direction: column; gap: 9px; overflow: hidden; }
 .phone-card {
-  background: #fff; border-radius: 13px; padding: 10px 12px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.06);
+  background: #fff; border-radius: 15px; padding: 10px 12px;
+  border: 1.5px solid #e6efed; box-shadow: 0 2px 0 #e6efed;
 }
-.phone-card .name { font-weight: 640; color: #000; font-size: 12.5px; letter-spacing: -.2px; }
+.phone-card .name { font-weight: 750; color: #000; font-size: 12.5px; letter-spacing: -.2px; }
 .phone-card .sub { color: #6c757a; font-size: 11px; }
 .phone-card .row { display: flex; align-items: center; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
 .pill {
-  font-size: 9.5px; font-weight: 640; letter-spacing: .01em;
-  padding: 2px 7px; border-radius: 999px; white-space: nowrap;
+  font-size: 9.5px; font-weight: 800; letter-spacing: .02em;
+  padding: 2.5px 8px; border-radius: 999px; white-space: nowrap;
 }
-.pill-teal { background: rgba(18,130,121,.13); color: #0b5b55; }
-.pill-amber { background: rgba(202,138,4,.15); color: #8a5a00; }
+.pill-teal { background: rgba(20,179,159,.18); color: #0a5f58; }
+.pill-amber { background: rgba(255,200,0,.28); color: #7a5600; }
 .pill-grey { background: rgba(118,118,128,.14); color: #4b5457; }
 .phone-tabbar {
   margin-top: auto; border-top: .5px solid rgba(0,0,0,.12);
@@ -203,8 +249,8 @@ nav.site a:hover, nav.site a[aria-current="page"] { color: var(--ink); }
 }
 .scan-fab {
   display: inline-flex; align-items: center; gap: 7px;
-  background: #0e7168; color: #fff; font-weight: 640; font-size: 12px;
-  padding: 8px 18px; border-radius: 999px;
+  background: #14b39f; color: #fff; font-weight: 800; font-size: 12px;
+  padding: 8px 20px; border-radius: 999px; box-shadow: 0 3px 0 #0b6f65;
 }
 .scan-fab svg { width: 14px; height: 14px; }
 /* The list is taller than the screen on purpose — it should look cut off at the
@@ -219,58 +265,94 @@ section { padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
 .section-head h2 { margin-top: 0; }
 .section-head p { color: var(--muted); margin-bottom: 0; }
 
-.band { background: var(--surface-2); border-block: 1px solid var(--line); }
+.band { background: var(--surface-2); border-block: 2px solid var(--line); }
 
-.grid { display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); }
+.grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); }
 .card {
-  background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--radius); padding: 1.5rem 1.5rem 1.35rem;
+  background: var(--surface); border: 2px solid var(--line);
+  border-radius: var(--radius); padding: 1.5rem 1.5rem 1.4rem;
+  box-shadow: 0 4px 0 var(--line);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
 }
-.card h3 { margin: 0 0 .45rem; font-size: 1.04rem; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--line-strong); border-color: var(--line-strong); }
+.card h3 { margin: 0 0 .45rem; font-size: 1.06rem; font-weight: 800; }
 .card p { margin: 0; font-size: .95rem; color: var(--muted); }
+
+/* Rounded-square icon tiles, each a different accent — the cycle is what makes
+   a row of otherwise identical cards feel playful. */
 .card .glyph {
-  width: 38px; height: 38px; border-radius: 11px; margin-bottom: .95rem;
+  width: 46px; height: 46px; border-radius: 15px; margin-bottom: 1.05rem;
   display: grid; place-items: center;
-  background: color-mix(in srgb, var(--teal-600) 12%, transparent);
-  color: var(--teal-600);
+  background: color-mix(in srgb, var(--teal-600) 18%, transparent);
+  color: var(--teal-700);
+  border: 2px solid color-mix(in srgb, var(--teal-600) 30%, transparent);
 }
-.card .glyph svg { width: 20px; height: 20px; }
+.card .glyph svg { width: 22px; height: 22px; }
+.grid .card:nth-child(4n+2) .glyph {
+  background: color-mix(in srgb, var(--acc-blue) 18%, transparent);
+  border-color: color-mix(in srgb, var(--acc-blue) 34%, transparent); color: var(--acc-blue-b);
+}
+.grid .card:nth-child(4n+3) .glyph {
+  background: color-mix(in srgb, var(--acc-gold) 26%, transparent);
+  border-color: color-mix(in srgb, var(--acc-gold) 46%, transparent); color: var(--acc-gold-b);
+}
+.grid .card:nth-child(4n+4) .glyph {
+  background: color-mix(in srgb, var(--acc-purple) 18%, transparent);
+  border-color: color-mix(in srgb, var(--acc-purple) 34%, transparent); color: var(--acc-purple);
+}
 
 /* the privacy claim table */
-table.claims { width: 100%; border-collapse: collapse; margin: 1.4rem 0 1.6rem; font-size: .95rem; }
-table.claims th, table.claims td { text-align: left; padding: .72rem .9rem; border-bottom: 1px solid var(--line); vertical-align: top; }
-table.claims th { color: var(--ink); font-weight: 640; width: 42%; }
-table.claims tr:first-child th, table.claims tr:first-child td { border-top: 1px solid var(--line); }
+table.claims {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  margin: 1.5rem 0 1.7rem; font-size: .95rem;
+  border: 2px solid var(--line); border-radius: var(--radius); overflow: hidden;
+}
+table.claims th, table.claims td { text-align: left; padding: .8rem 1rem; border-bottom: 2px solid var(--line); vertical-align: top; }
+table.claims tr:last-child th, table.claims tr:last-child td { border-bottom: 0; }
+table.claims th { color: var(--ink); font-weight: 800; width: 42%; background: var(--surface-2); }
 @media (max-width: 620px) {
   table.claims, table.claims tbody, table.claims tr, table.claims th, table.claims td { display: block; width: auto; }
-  table.claims th { border-bottom: 0; padding-bottom: .1rem; }
+  table.claims th { border-bottom: 0; padding-bottom: .1rem; background: transparent; }
   table.claims td { padding-top: 0; }
+  table.claims tr { border-bottom: 2px solid var(--line); }
+  table.claims tr:last-child { border-bottom: 0; }
 }
 
 .callout {
-  border-left: 3px solid var(--teal-600); background: var(--surface-2);
-  padding: 1rem 1.2rem; border-radius: 0 12px 12px 0; margin: 1.6rem 0;
+  border: 2px solid color-mix(in srgb, var(--teal-600) 40%, transparent);
+  border-left-width: 8px;
+  background: var(--surface-2);
+  padding: 1.1rem 1.3rem; border-radius: 16px; margin: 1.7rem 0;
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--teal-600) 20%, transparent);
 }
 .callout p:last-child { margin-bottom: 0; }
 .callout p:first-child { margin-top: 0; }
 
-.faq { border-top: 1px solid var(--line); }
-.faq details { border-bottom: 1px solid var(--line); }
+.faq { border-top: 0; }
+.faq details {
+  border: 2px solid var(--line); border-radius: 16px; margin-bottom: .8rem;
+  background: var(--surface); overflow: hidden;
+}
+.faq details[open] { border-color: color-mix(in srgb, var(--teal-600) 45%, transparent); }
 .faq summary {
-  cursor: pointer; padding: 1.05rem 2rem 1.05rem 0; font-weight: 620;
+  cursor: pointer; padding: 1.05rem 3rem 1.05rem 1.15rem; font-weight: 750;
   color: var(--ink); list-style: none; position: relative;
 }
+.faq summary:hover { background: var(--surface-2); }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after {
-  content: "+"; position: absolute; right: .35rem; top: 50%; transform: translateY(-50%);
-  font-size: 1.35rem; font-weight: 400; color: var(--teal-600); line-height: 1;
+  content: "+"; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+  width: 26px; height: 26px; display: grid; place-items: center;
+  background: color-mix(in srgb, var(--teal-600) 16%, transparent);
+  border-radius: 999px;
+  font-size: 1.15rem; font-weight: 700; color: var(--teal-700); line-height: 1;
 }
-.faq details[open] summary::after { content: "−"; }
-.faq .answer { padding: 0 0 1.15rem; color: var(--muted); font-size: .96rem; }
+.faq details[open] summary::after { content: "−"; background: var(--teal-600); color: #fff; }
+.faq .answer { padding: 0 1.15rem 1.15rem; color: var(--muted); font-size: .96rem; }
 .faq .answer p:last-child { margin-bottom: 0; }
 
 .page-head { padding: clamp(2.4rem, 5vw, 3.6rem) 0 0; }
-.page-head .meta { color: var(--muted); font-size: .92rem; margin: 0; }
+.page-head .meta { color: var(--muted); font-size: .92rem; margin: 0; font-weight: 600; }
 .page-head + section { padding-top: clamp(1.6rem, 3vw, 2.2rem); }
 .prose > h2:first-child { margin-top: 0; }
 
@@ -282,13 +364,13 @@ table.claims tr:first-child th, table.claims tr:first-child td { border-top: 1px
 /* ---------------------------------------------------------------- footer */
 
 footer.site {
-  border-top: 1px solid var(--line); margin-top: clamp(3rem, 7vw, 5rem);
+  border-top: 2px solid var(--line); margin-top: clamp(3rem, 7vw, 5rem);
   padding: 2.6rem 0 3.2rem; font-size: .9rem; color: var(--muted);
 }
 footer.site .footer-top {
   display: flex; flex-wrap: wrap; gap: .8rem 2rem; align-items: baseline;
 }
 footer.site nav { display: flex; gap: 1.3rem; flex-wrap: wrap; margin-left: auto; }
-footer.site a { color: var(--muted); text-decoration: none; }
-footer.site a:hover { color: var(--ink); text-decoration: underline; }
+footer.site a { color: var(--muted); text-decoration: none; font-weight: 700; }
+footer.site a:hover { color: var(--teal-700); text-decoration: underline; }
 footer.site .disclaimer { max-width: 74ch; margin: 1.4rem 0 0; font-size: .84rem; line-height: 1.6; }
